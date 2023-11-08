@@ -97,23 +97,3 @@
     });
 </script>
 
-<script>
-    function setSubCategory(id)
-    {
-       $.ajax({
-        type: "GET",
-        url: "{{route('get-sub-category-by-category')}}",
-        data:{id:id},
-        datatype:"JSON",
-        success:function(response){
-          var option = '';
-          option +=' <option value="" disabled selected> -- Select Sub Category -- </option>';
-          $.each(response,function(key,value){
-            option += '<option value="'+value.id+'"> ' +value.name+' </option>';
-          });
-          $('#subCategoryId').empty();
-          $('#subCategoryId').append(option);
-        }
-       });
-    }
-</script>
